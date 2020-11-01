@@ -1,0 +1,10 @@
+BEGIN
+fnd_user_pkg.addresp ('SMUDALIAR','SYSADMIN','SYSTEM_ADMINISTRATOR','STANDARD','Add Responsibility to USER using pl/sql',SYSDATE,SYSDATE + 100);
+COMMIT;
+DBMS_OUTPUT.put_line ('Responsibility Added Successfully');
+EXCEPTION
+WHEN OTHERS
+THEN
+DBMS_OUTPUT.put_line ( ' Responsibility is not added due to ' || SQLCODE || SUBSTR (SQLERRM, 1, 100));
+ROLLBACK;
+END;
